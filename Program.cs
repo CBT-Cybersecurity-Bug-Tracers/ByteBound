@@ -1,12 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ByteBound.Data;
+using Microsoft.AspNetCore.Identity;
+using ByteBound.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ByteBoundContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ByteBoundContext") ?? throw new InvalidOperationException("Connection string 'ByteBoundContext' not found.")));
+
+builder.Services.AddDefaultIdentity<ApplicationUsers>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ByteBoundContext>();
+    
+
 
 var app = builder.Build();
 
@@ -22,6 +31,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();;
 
 app.UseAuthorization();
 

@@ -5,14 +5,23 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using CBT.Models;
 using ByteBound.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ByteBound.Data
 {
-    public class ByteBoundContext : DbContext
+    public class ByteBoundContext : IdentityDbContext<ApplicationUsers>
     {
         public ByteBoundContext (DbContextOptions<ByteBoundContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            // Customize the ASP.NET Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Identity table names and more.
+            // Add your customizations after calling base.OnModelCreating(builder);
         }
 
         public DbSet<CBT.Models.Challenges> Challenges { get; set; } = default!;
