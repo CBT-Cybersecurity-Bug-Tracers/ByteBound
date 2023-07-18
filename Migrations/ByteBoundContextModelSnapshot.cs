@@ -30,14 +30,16 @@ namespace ByteBound.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<decimal>("CardCVV")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("CardCVV")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CardExpiry")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("CardNumber")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -47,8 +49,8 @@ namespace ByteBound.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Score")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
 
                     b.Property<string>("Username")
                         .IsRequired()

@@ -1,0 +1,36 @@
+﻿@page
+@model ByteBound.Pages.User.IndexModel
+
+@{
+    ViewData["Title"] = "Scoreboard";
+}
+
+<h1>Scoreboard</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Users[0].Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users[0].Score)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users.OrderByDescending(u => u.Score))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Score)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
