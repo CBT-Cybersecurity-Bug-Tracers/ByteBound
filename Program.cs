@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ByteBoundContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ByteBoundContext") ?? throw new InvalidOperationException("Connection string 'RazorPagesMovieContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ByteBoundContext") ?? throw new InvalidOperationException("Connection string 'ByteBoundContext' not found.")));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
