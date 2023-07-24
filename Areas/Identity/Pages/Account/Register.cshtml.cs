@@ -106,11 +106,6 @@ namespace ByteBound.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             [Display(Name = "Full name")]
             public string FullName { get; set; }
-            [Required]
-            [Display(Name = "Birth Date")]
-            [DataType(DataType.Date)]
-            public DateTime BirthDate { get; set; }
-
 
         }
 

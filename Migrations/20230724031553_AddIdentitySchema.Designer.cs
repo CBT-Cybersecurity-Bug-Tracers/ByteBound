@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ByteBound.Migrations
 {
     [DbContext(typeof(ByteBoundContext))]
-    [Migration("20230718073402_AddIdentitySchema")]
+    [Migration("20230724031553_AddIdentitySchema")]
     partial class AddIdentitySchema
     {
         /// <inheritdoc />
@@ -32,23 +32,6 @@ namespace ByteBound.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CardCVV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CardExpiry")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CardNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
