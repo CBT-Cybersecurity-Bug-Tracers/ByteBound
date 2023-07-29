@@ -1,0 +1,8 @@
+﻿@model bool
+
+@if (Context.User.Identity.IsAuthenticated && Model)
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-page="/User/Index">User</a>
+    </li>
+}

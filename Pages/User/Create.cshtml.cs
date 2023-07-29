@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ByteBound.Data;
 using ByteBound.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace ByteBound.Pages.User
 {
