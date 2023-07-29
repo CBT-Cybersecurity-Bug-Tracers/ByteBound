@@ -7,15 +7,39 @@ using ByteBound.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizePage("/User/Create");
+    options.Conventions.AuthorizePage("/User");
+    options.Conventions.AuthorizeAreaPage("Identity", "/Account/Manage");
+});
+
 builder.Services.AddDbContext<ByteBoundContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ByteBoundContext") ?? throw new InvalidOperationException("Connection string 'ByteBoundContext' not found.")));
 
 builder.Services.AddDefaultIdentity<ApplicationUsers>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ByteBoundContext>();
-    
 
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Password settings.
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 14;
+    options.Password.RequiredUniqueChars = 1;
+    // Lockout settings.
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.AllowedForNewUsers = true;
+    // User settings.
+    options.User.AllowedUserNameCharacters =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    options.User.RequireUniqueEmail = false;
+});
 
 var app = builder.Build();
 
