@@ -17,15 +17,16 @@ builder.Services.AddRazorPages(options =>
 builder.Services.AddDbContext<ByteBoundContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ByteBoundContext") ?? throw new InvalidOperationException("Connection string 'ByteBoundContext' not found.")));
 
-builder.Services.AddDefaultIdentity<ApplicationUsers>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ByteBoundContext>();
 
+builder.Services.AddIdentity<ApplicationUsers, ApplicationRole>(options =>
+options.SignIn.RequireConfirmedAccount = false)
+ .AddDefaultUI()
+ .AddEntityFrameworkStores<ByteBoundContext>().AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Password settings.
-    options.Password.RequireDigit = false;
+    options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireNonAlphanumeric = true;
     options.Password.RequireUppercase = true;

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ByteBound.Data
 {
-    public class ByteBoundContext : IdentityDbContext<ApplicationUsers>
+    public class ByteBoundContext : IdentityDbContext<ApplicationUsers, ApplicationRole, string>
     {
         public ByteBoundContext (DbContextOptions<ByteBoundContext> options)
             : base(options)
