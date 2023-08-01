@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizePage("/User/Create");
-    options.Conventions.AuthorizePage("/User");
+    options.Conventions.AuthorizePage("/User/Index");
     options.Conventions.AuthorizeAreaPage("Identity", "/Account/Manage");
 });
 
