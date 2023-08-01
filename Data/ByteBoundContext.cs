@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using CBT.Models;
 using ByteBound.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
@@ -24,7 +23,7 @@ namespace ByteBound.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
 
-        public DbSet<CBT.Models.Challenges> Challenges { get; set; } = default!;
+        public DbSet<ByteBound.Models.Challenges> Challenges { get; set; } = default!;
 
         public DbSet<ByteBound.Models.Users>? Users { get; set; }
     }
