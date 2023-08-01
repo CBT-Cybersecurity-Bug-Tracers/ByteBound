@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CBT.Models
+namespace ByteBound.Models
 {
     public class Challenges
     {
