@@ -1,47 +1,50 @@
-/* Global Styles */
+/* Global styles */
 body {
-    font-family: "Roboto", Arial, sans-serif;
-    background-color: #111;
-    color: #ccc;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #0f0; /* Green color for hacker vibe */
-}
-
-p {
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-    a:hover {
-        color: #0056b3;
-        text-decoration: underline;
-    }
-
-/* Hacker Theme */
-body {
-    background-image: url('path/to/hacker_background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/* Header styles */
+header {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+    header h1 {
+        color: #0f0;
+        text-align: center;
+        font-size: 36px;
+        margin: 0;
+    }
+
+/* Navigation styles */
+nav {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin-top: 20px;
+}
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+    }
+
+/* Container styles */
 
 .container {
     background-color: rgba(0, 0, 0, 0.7);
@@ -50,15 +53,66 @@ body {
     padding: 40px;
 }
 
-h1 {
-    font-family: "Orbitron", Arial, sans-serif;
-    text-shadow: 2px 2px 4px #000;
+/* Main content styles */
+main {
+    margin-top: 20px;
 }
 
-a {
-    color: #4CAF50; /* Green color for links */
+    main h2 {
+        color: #0f0;
+        font-size: 24px;
+        border-bottom: 2px solid #0f0;
+        padding-bottom: 5px;
+    }
+
+/* Table styles */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-    a:hover {
-        color: #8bc34a; /* Light green color on hover */
+th, td {
+    border: 1px solid #0f0;
+    padding: 10px;
+}
+
+th {
+    background-color: #111;
+}
+
+/* Footer styles */
+footer {
+    background-color: #111;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+    footer p {
+        margin: 0;
+    }
+
+/* Additional styles for hacker effect (optional) */
+/* Feel free to customize or remove these effects as per your preference */
+h1, h2, h3, h4, h5, h6 {
+    border-bottom: 2px solid #0f0;
+}
+
+a:hover {
+    color: #0f0;
+    text-decoration: underline;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0f0;
+    border-radius: 5px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #00ff00;
     }

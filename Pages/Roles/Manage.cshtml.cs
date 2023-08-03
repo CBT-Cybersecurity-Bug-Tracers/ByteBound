@@ -14,7 +14,7 @@ namespace ByteBound.Pages.Roles
     public class ManageModel : PageModel
     {
         private readonly ByteBound.Data.ByteBoundContext _context;
-        private readonly UserManager<ApplicationUsers> _userManager;
+        private readonly UserManager<Users> _userManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
         public ManageModel(ByteBound.Data.ByteBoundContext context,
         UserManager<Users> userManager, RoleManager<ApplicationRole> roleManager)
