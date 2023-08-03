@@ -6,6 +6,8 @@ body {
     line-height: 1.6;
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
 }
 
 /* Header styles */
@@ -20,6 +22,7 @@ header {
 }
 
     header h1 {
+        background-color: #000;
         color: #0f0;
         text-align: center;
         font-size: 36px;
@@ -29,11 +32,6 @@ header {
 /* Navigation styles */
 nav {
     background-color: #000;
-    color: #fff;
-    font-family: 'Courier New', monospace;
-    line-height: 1.6;
-    background-size: cover;
-    background-repeat: no-repeat;
     text-align: center;
     margin-top: 20px;
 }
@@ -45,9 +43,11 @@ nav {
     }
 
 /* Container styles */
-
 .container {
     background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 40px;
@@ -75,15 +75,25 @@ table {
 th, td {
     border: 1px solid #0f0;
     padding: 10px;
+    color: #fff; /* White text color */
 }
 
 th {
     background-color: #111;
+    color: #0f0; /* White text color for the table header */
+}
+
+/* Green border for th and td */
+th, td {
+    border: 1px solid #0f0;
 }
 
 /* Footer styles */
 footer {
-    background-color: #111;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
     padding: 10px;
     text-align: center;
     margin-top: 20px;
