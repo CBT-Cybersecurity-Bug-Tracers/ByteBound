@@ -45,7 +45,7 @@ namespace ByteBound.Pages.Roles
             var listusers = _context.UserRoles.Where(u => u.RoleId == roleid);
             foreach (var oParam in listusers)
             { // loop through each object - get the username based on the userid and append to the returned string
-                var userobj = _context.Users.SingleOrDefault(s => s.ID == oParam.UserId);
+                var userobj = _context.Users.SingleOrDefault(s => s.ID == Convert.ToInt32(oParam.UserId));
                 strListUsersInRole += "[" + userobj.UserName + "] ";
             }
             return strListUsersInRole;

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ByteBound.Data;
-using CBT.Models;
+using ByteBound.Models;
 
 namespace ByteBound.Pages.Challenge
 {
