@@ -16,5 +16,8 @@ namespace ByteBound.Models
         public string CardCVV { get; set; }
 
         public DateTime CardExpiry { get; set; }
+
+        public string SecurityQn { get; set; } = string.Empty;
+        public string SecurityAns { get; set; } = string.Empty;
     }
 }
