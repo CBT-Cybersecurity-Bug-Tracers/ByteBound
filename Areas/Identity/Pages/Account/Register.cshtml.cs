@@ -25,7 +25,7 @@ namespace ByteBound.Areas.Identity.Pages.Account
     public class RegisterModel : PageModel
     {
         private readonly UserManager<ApplicationUsers> _userManager;
-        private readonly IUserStore<ApplicationUsers> _userStore;
+        private readonly IUserStore<ApplicationUsers> _ApplicationUserstore;
         private readonly SignInManager<ApplicationUsers> _signInManager;
         private readonly IUserEmailStore<ApplicationUsers> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
@@ -36,13 +36,13 @@ namespace ByteBound.Areas.Identity.Pages.Account
 
         public RegisterModel(
             UserManager<ApplicationUsers> userManager,
-            IUserStore<ApplicationUsers> userStore,
+            IUserStore<ApplicationUsers> ApplicationUserstore,
             SignInManager<ApplicationUsers> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
             _userManager = userManager;
-            _userStore = userStore;
+            _ApplicationUserstore = ApplicationUserstore;
             _emailStore = GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
@@ -123,10 +123,10 @@ namespace ByteBound.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-                user.FullName = Input.FullName;
+                user.FullName = Input.FullName; // TODO please fix
                 
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _ApplicationUserstore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
@@ -186,7 +186,7 @@ namespace ByteBound.Areas.Identity.Pages.Account
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<ApplicationUsers>)_userStore;
+            return (IUserEmailStore<ApplicationUsers>)_ApplicationUserstore;
         }
     }
 }

@@ -18,10 +18,10 @@ namespace ByteBound.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel
     {
-        private readonly UserManager<Users> _userManager;
+        private readonly UserManager<ApplicationUsers> _userManager;
         private readonly IEmailSender _sender;
 
-        public RegisterConfirmationModel(UserManager<Users> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<ApplicationUsers> userManager, IEmailSender sender)
         {
             _userManager = userManager;
             _sender = sender;

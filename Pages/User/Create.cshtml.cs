@@ -26,18 +26,18 @@ namespace ByteBound.Pages.User
         }
 
         [BindProperty]
-        public Users Users { get; set; } = default!;
+        public ApplicationUsers ApplicationUsers { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Users == null || Users == null)
+          if (!ModelState.IsValid || _context.ApplicationUsers == null || ApplicationUsers == null)
             {
                 return Page();
             }
 
-            _context.Users.Add(Users);
+            _context.ApplicationUsers.Add(ApplicationUsers);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

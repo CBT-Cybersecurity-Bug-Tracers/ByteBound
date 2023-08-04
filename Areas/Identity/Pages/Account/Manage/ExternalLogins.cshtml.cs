@@ -17,18 +17,18 @@ namespace ByteBound.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<Users> _userManager;
-        private readonly SignInManager<Users> _signInManager;
-        private readonly IUserStore<Users> _userStore;
+        private readonly UserManager<ApplicationUsers> _userManager;
+        private readonly SignInManager<ApplicationUsers> _signInManager;
+        private readonly IUserStore<ApplicationUsers> _ApplicationUserstore;
 
         public ExternalLoginsModel(
-            UserManager<Users> userManager,
-            SignInManager<Users> signInManager,
-            IUserStore<Users> userStore)
+            UserManager<ApplicationUsers> userManager,
+            SignInManager<ApplicationUsers> signInManager,
+            IUserStore<ApplicationUsers> ApplicationUserstore)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _userStore = userStore;
+            _ApplicationUserstore = ApplicationUserstore;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace ByteBound.Areas.Identity.Pages.Account.Manage
                 .ToList();
 
             string passwordHash = null;
-            if (_userStore is IUserPasswordStore<Users> userPasswordStore)
+            if (_ApplicationUserstore is IUserPasswordStore<ApplicationUsers> userPasswordStore)
             {
                 passwordHash = await userPasswordStore.GetPasswordHashAsync(user, HttpContext.RequestAborted);
             }

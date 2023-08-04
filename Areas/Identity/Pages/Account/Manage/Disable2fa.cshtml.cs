@@ -14,11 +14,11 @@ namespace ByteBound.Areas.Identity.Pages.Account.Manage
 {
     public class Disable2faModel : PageModel
     {
-        private readonly UserManager<Users> _userManager;
+        private readonly UserManager<ApplicationUsers> _userManager;
         private readonly ILogger<Disable2faModel> _logger;
 
         public Disable2faModel(
-            UserManager<Users> userManager,
+            UserManager<ApplicationUsers> userManager,
             ILogger<Disable2faModel> logger)
         {
             _userManager = userManager;

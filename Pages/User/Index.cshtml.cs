@@ -19,13 +19,13 @@ namespace ByteBound.Pages.User
             _context = context;
         }
 
-        public IList<Users> Users { get;set; } = default!;
+        public IList<ApplicationUsers> ApplicationUsers { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Users != null)
+            if (_context.ApplicationUsers != null)
             {
-                Users = await _context.Users.ToListAsync();
+                ApplicationUsers = await _context.ApplicationUsers.ToListAsync();
             }
         }
     }
