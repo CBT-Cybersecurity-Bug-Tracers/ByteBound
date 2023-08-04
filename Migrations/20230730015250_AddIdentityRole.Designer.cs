@@ -129,10 +129,10 @@ namespace ByteBound.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("AspNetUsers", (string)null);
+                    b.ToTable("AspNetApplicationUsers", (string)null);
                 });
 
-            modelBuilder.Entity("ByteBound.Models.Users", b =>
+            modelBuilder.Entity("ByteBound.Models.ApplicationUsers", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -172,7 +172,7 @@ namespace ByteBound.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Users");
+                    b.ToTable("ApplicationUsers");
                 });
 
             modelBuilder.Entity("CBT.Models.Challenges", b =>

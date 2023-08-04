@@ -16,10 +16,10 @@ namespace ByteBound.Areas.Identity.Pages.Account
 {
     public class ConfirmEmailChangeModel : PageModel
     {
-        private readonly UserManager<Users> _userManager;
-        private readonly SignInManager<Users> _signInManager;
+        private readonly UserManager<ApplicationUsers> _userManager;
+        private readonly SignInManager<ApplicationUsers> _signInManager;
 
-        public ConfirmEmailChangeModel(UserManager<Users> userManager, SignInManager<Users> signInManager)
+        public ConfirmEmailChangeModel(UserManager<ApplicationUsers> userManager, SignInManager<ApplicationUsers> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

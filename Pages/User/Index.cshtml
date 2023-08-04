@@ -14,34 +14,34 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].Username)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].Username)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].Password)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].Password)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].Email)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].VerificationStatus)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].VerificationStatus)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].Score)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].Score)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].CardNumber)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].CardNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].CardCVV)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].CardCVV)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].CardExpiry)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].CardExpiry)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Users) {
+@foreach (var item in Model.ApplicationUsers) {
         <tr>
             <td>
                 @Html.Raw(Microsoft.Security.Application.Encoder.HtmlEncode(item.Username))

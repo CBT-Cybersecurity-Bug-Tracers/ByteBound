@@ -17,9 +17,9 @@ namespace ByteBound.Areas.Identity.Pages.Account
 {
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<Users> _userManager;
+        private readonly UserManager<ApplicationUsers> _userManager;
 
-        public ConfirmEmailModel(UserManager<Users> userManager)
+        public ConfirmEmailModel(UserManager<ApplicationUsers> userManager)
         {
             _userManager = userManager;
         }

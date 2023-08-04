@@ -19,23 +19,23 @@ namespace ByteBound.Pages.User
             _context = context;
         }
 
-      public Users Users { get; set; } = default!; 
+      public ApplicationUsers ApplicationUsers { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.ApplicationUsers == null)
             {
                 return NotFound();
             }
 
-            var users = await _context.Users.FirstOrDefaultAsync(m => m.ID == id);
-            if (users == null)
+            var ApplicationUsers = await _context.ApplicationUsers.FirstOrDefaultAsync(m => m.ID == id);
+            if (ApplicationUsers == null)
             {
                 return NotFound();
             }
             else 
             {
-                Users = users;
+                ApplicationUsers = ApplicationUsers;
             }
             return Page();
         }

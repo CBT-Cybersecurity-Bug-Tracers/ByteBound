@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages(options =>
 {
-    options.Conventions.AuthorizePage("/User/Create");
-    options.Conventions.AuthorizePage("/User/Index");
+    //options.Conventions.AuthorizePage("/User/Create");
+    //options.Conventions.AuthorizePage("/User/Index");
     options.Conventions.AuthorizeAreaPage("Identity", "/Account/Manage");
 });
 
@@ -26,7 +26,7 @@ options.SignIn.RequireConfirmedAccount = false)
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Password settings.
-    options.Password.RequireDigit = true;
+    options.Password.RequireDigit = false;
     options.Password.RequireLowercase = true;
     options.Password.RequireNonAlphanumeric = true;
     options.Password.RequireUppercase = true;
