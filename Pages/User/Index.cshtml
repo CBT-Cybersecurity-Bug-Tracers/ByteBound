@@ -44,28 +44,29 @@
 @foreach (var item in Model.Users) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Username)
+                @Html.Raw(Microsoft.Security.Application.Encoder.HtmlEncode(item.Username))
+
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Password)
+                @Html.Raw(item.Password)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @Html.Raw(item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.VerificationStatus)
+                @Html.Raw(item.VerificationStatus)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Score)
+                @Html.Raw(item.Score)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CardNumber)
+                @Html.Raw(item.CardNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CardCVV)
+                @Html.Raw(item.CardCVV)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CardExpiry)
+                @Html.Raw(item.CardExpiry)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
