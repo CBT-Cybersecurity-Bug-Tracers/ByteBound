@@ -107,6 +107,16 @@ namespace ByteBound.Areas.Identity.Pages.Account
             [Display(Name = "Full name")]
             public string FullName { get; set; }
 
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name="Security Question")]
+            public string SecurityQn { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Security Answer")]
+            public string SecurityAns { get; set; }
+
         }
 
 
