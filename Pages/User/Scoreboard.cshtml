@@ -12,16 +12,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].Username)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].Username)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].Score)
+                @Html.DisplayNameFor(model => model.ApplicationUsers[0].Score)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Users.OrderByDescending(u => u.Score))
+        @foreach (var item in Model.ApplicationUsers.OrderByDescending(u => u.Score))
         {
             <tr>
                 <td>

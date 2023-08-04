@@ -25,6 +25,6 @@ namespace ByteBound.Data
 
         public DbSet<ByteBound.Models.Challenges> Challenges { get; set; } = default!;
 
-        public DbSet<ByteBound.Models.Users>? Users { get; set; }
+        public DbSet<ByteBound.Models.ApplicationUsers>? ApplicationUsers { get; set; }
     }
 }

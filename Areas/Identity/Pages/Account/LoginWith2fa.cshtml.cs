@@ -17,13 +17,13 @@ namespace ByteBound.Areas.Identity.Pages.Account
 {
     public class LoginWith2faModel : PageModel
     {
-        private readonly SignInManager<Users> _signInManager;
-        private readonly UserManager<Users> _userManager;
+        private readonly SignInManager<ApplicationUsers> _signInManager;
+        private readonly UserManager<ApplicationUsers> _userManager;
         private readonly ILogger<LoginWith2faModel> _logger;
 
         public LoginWith2faModel(
-            SignInManager<Users> signInManager,
-            UserManager<Users> userManager,
+            SignInManager<ApplicationUsers> signInManager,
+            UserManager<ApplicationUsers> userManager,
             ILogger<LoginWith2faModel> logger)
         {
             _signInManager = signInManager;

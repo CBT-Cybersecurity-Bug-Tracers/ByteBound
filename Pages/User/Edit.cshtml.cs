@@ -21,21 +21,21 @@ namespace ByteBound.Pages.User
         }
 
         [BindProperty]
-        public Users Users { get; set; } = default!;
+        public ApplicationUsers ApplicationUsers { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.ApplicationUsers == null)
             {
                 return NotFound();
             }
 
-            var users =  await _context.Users.FirstOrDefaultAsync(m => m.ID == id);
-            if (users == null)
+            var ApplicationUsers =  await _context.ApplicationUsers.FirstOrDefaultAsync(m => m.ID == id);
+            if (ApplicationUsers == null)
             {
                 return NotFound();
             }
-            Users = users;
+            ApplicationUsers = ApplicationUsers;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace ByteBound.Pages.User
                 return Page();
             }
 
-            _context.Attach(Users).State = EntityState.Modified;
+            _context.Attach(ApplicationUsers).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace ByteBound.Pages.User
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsersExists(Users.ID))
+                if (!ApplicationUsersExists(ApplicationUsers.ID))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace ByteBound.Pages.User
             return RedirectToPage("./Index");
         }
 
-        private bool UsersExists(int id)
+        private bool ApplicationUsersExists(int id)
         {
-          return (_context.Users?.Any(e => e.ID == id)).GetValueOrDefault();
+          return (_context.ApplicationUsers?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

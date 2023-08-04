@@ -20,40 +20,40 @@ namespace ByteBound.Pages.User
         }
 
         [BindProperty]
-      public Users Users { get; set; } = default!;
+      public ApplicationUsers ApplicationUsers { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.ApplicationUsers == null)
             {
                 return NotFound();
             }
 
-            var users = await _context.Users.FirstOrDefaultAsync(m => m.ID == id);
+            var ApplicationUsers = await _context.ApplicationUsers.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (users == null)
+            if (ApplicationUsers == null)
             {
                 return NotFound();
             }
             else 
             {
-                Users = users;
+                ApplicationUsers = ApplicationUsers;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _context.ApplicationUsers == null)
             {
                 return NotFound();
             }
-            var users = await _context.Users.FindAsync(id);
+            var ApplicationUsers = await _context.ApplicationUsers.FindAsync(id);
 
-            if (users != null)
+            if (ApplicationUsers != null)
             {
-                Users = users;
-                _context.Users.Remove(Users);
+                ApplicationUsers = ApplicationUsers;
+                _context.ApplicationUsers.Remove(ApplicationUsers);
                 await _context.SaveChangesAsync();
             }
 

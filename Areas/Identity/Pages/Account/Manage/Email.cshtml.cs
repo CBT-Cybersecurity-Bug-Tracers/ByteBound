@@ -18,13 +18,13 @@ namespace ByteBound.Areas.Identity.Pages.Account.Manage
 {
     public class EmailModel : PageModel
     {
-        private readonly UserManager<Users> _userManager;
-        private readonly SignInManager<Users> _signInManager;
+        private readonly UserManager<ApplicationUsers> _userManager;
+        private readonly SignInManager<ApplicationUsers> _signInManager;
         private readonly IEmailSender _emailSender;
 
         public EmailModel(
-            UserManager<Users> userManager,
-            SignInManager<Users> signInManager,
+            UserManager<ApplicationUsers> userManager,
+            SignInManager<ApplicationUsers> signInManager,
             IEmailSender emailSender)
         {
             _userManager = userManager;
@@ -74,7 +74,7 @@ namespace ByteBound.Areas.Identity.Pages.Account.Manage
             public string NewEmail { get; set; }
         }
 
-        private async Task LoadAsync(Users user)
+        private async Task LoadAsync(ApplicationUsers user)
         {
             var email = await _userManager.GetEmailAsync(user);
             Email = email;

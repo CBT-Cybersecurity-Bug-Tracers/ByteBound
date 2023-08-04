@@ -14,12 +14,12 @@ namespace ByteBound.Areas.Identity.Pages.Account.Manage
 {
     public class TwoFactorAuthenticationModel : PageModel
     {
-        private readonly UserManager<Users> _userManager;
-        private readonly SignInManager<Users> _signInManager;
+        private readonly UserManager<ApplicationUsers> _userManager;
+        private readonly SignInManager<ApplicationUsers> _signInManager;
         private readonly ILogger<TwoFactorAuthenticationModel> _logger;
 
         public TwoFactorAuthenticationModel(
-            UserManager<Users> userManager, SignInManager<Users> signInManager, ILogger<TwoFactorAuthenticationModel> logger)
+            UserManager<ApplicationUsers> userManager, SignInManager<ApplicationUsers> signInManager, ILogger<TwoFactorAuthenticationModel> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;

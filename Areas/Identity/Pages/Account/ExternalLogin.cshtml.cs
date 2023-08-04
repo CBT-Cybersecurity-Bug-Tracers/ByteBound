@@ -24,23 +24,23 @@ namespace ByteBound.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel
     {
-        private readonly SignInManager<Users> _signInManager;
-        private readonly UserManager<Users> _userManager;
-        private readonly IUserStore<Users> _userStore;
-        private readonly IUserEmailStore<Users> _emailStore;
+        private readonly SignInManager<ApplicationUsers> _signInManager;
+        private readonly UserManager<ApplicationUsers> _userManager;
+        private readonly IUserStore<ApplicationUsers> _ApplicationUserstore;
+        private readonly IUserEmailStore<ApplicationUsers> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
 
         public ExternalLoginModel(
-            SignInManager<Users> signInManager,
-            UserManager<Users> userManager,
-            IUserStore<Users> userStore,
+            SignInManager<ApplicationUsers> signInManager,
+            UserManager<ApplicationUsers> userManager,
+            IUserStore<ApplicationUsers> ApplicationUserstore,
             ILogger<ExternalLoginModel> logger,
             IEmailSender emailSender)
         {
             _signInManager = signInManager;
             _userManager = userManager;
-            _userStore = userStore;
+            _ApplicationUserstore = ApplicationUserstore;
             _emailStore = GetEmailStore();
             _logger = logger;
             _emailSender = emailSender;
@@ -154,7 +154,7 @@ namespace ByteBound.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _ApplicationUserstore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
                 var result = await _userManager.CreateAsync(user);
@@ -198,27 +198,27 @@ namespace ByteBound.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private Users CreateUser()
+        private ApplicationUsers CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<Users>();
+                return Activator.CreateInstance<ApplicationUsers>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(Users)}'. " +
-                    $"Ensure that '{nameof(Users)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(ApplicationUsers)}'. " +
+                    $"Ensure that '{nameof(ApplicationUsers)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the external login page in /Areas/Identity/Pages/Account/ExternalLogin.cshtml");
             }
         }
 
-        private IUserEmailStore<Users> GetEmailStore()
+        private IUserEmailStore<ApplicationUsers> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<Users>)_userStore;
+            return (IUserEmailStore<ApplicationUsers>)_ApplicationUserstore;
         }
     }
 }

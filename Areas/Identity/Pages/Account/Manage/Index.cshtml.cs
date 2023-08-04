@@ -15,12 +15,12 @@ namespace ByteBound.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly UserManager<Users> _userManager;
-        private readonly SignInManager<Users> _signInManager;
+        private readonly UserManager<ApplicationUsers> _userManager;
+        private readonly SignInManager<ApplicationUsers> _signInManager;
 
         public IndexModel(
-            UserManager<Users> userManager,
-            SignInManager<Users> signInManager)
+            UserManager<ApplicationUsers> userManager,
+            SignInManager<ApplicationUsers> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -61,7 +61,7 @@ namespace ByteBound.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(Users user)
+        private async Task LoadAsync(ApplicationUsers user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
